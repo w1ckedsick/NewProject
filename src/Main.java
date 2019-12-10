@@ -1,3 +1,5 @@
+import sun.awt.resources.awt;
+
 import java.awt.*;
 import java.io.IOException;
 import java.net.URI;
@@ -86,6 +88,7 @@ class Alarm {
     }
 
     void beep() {
+        /*
         Desktop d = Desktop.getDesktop();
         try {
             d.browse(new URI("https://www.youtube.com/watch?v=9knYNjp95bs"));
@@ -94,5 +97,7 @@ class Alarm {
         } catch (URISyntaxException e) {
             e.printStackTrace();
         }
+        */
+        Toolkit.getDefaultToolkit().beep();
     }
 }
