@@ -10,7 +10,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
-public class Main {
+public class AlarmTimer {
     public static void main(String[] args) {
         Alarm obj = new Alarm();
         obj.greet();
@@ -21,9 +21,11 @@ public class Main {
             switch (command[0]) {
                 case "a":
                     try {
+                        obj.checkAlarmArguments(command);
                         obj.setAlarm(command[1]);
                     } catch (Exception e) {
                         obj.greet();
+                        e.printStackTrace();
                     }
                     break;
                 case "t":
@@ -44,7 +46,9 @@ public class Main {
 }
 class Alarm {
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("H:m");
+    void checkAlarmArguments(String[] command) {
 
+    }
     void setAlarm(String alarm) {
 
         LocalTime time = LocalTime.parse(alarm, formatter);
@@ -88,7 +92,7 @@ class Alarm {
     }
 
     void beep() {
-        /*
+
         Desktop d = Desktop.getDesktop();
         try {
             d.browse(new URI("https://www.youtube.com/watch?v=9knYNjp95bs"));
@@ -97,7 +101,7 @@ class Alarm {
         } catch (URISyntaxException e) {
             e.printStackTrace();
         }
-        */
+
         Toolkit.getDefaultToolkit().beep();
     }
 }
